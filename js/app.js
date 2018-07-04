@@ -24,10 +24,28 @@ render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 };
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+class Player {
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
+        this.sprite = "images/char-boy.png"
+    }
 
+    update() {
+
+    }
+    render() {
+        //Draw the player on the canvas.
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    handleInput() {
+
+    }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
