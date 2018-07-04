@@ -48,9 +48,11 @@ class Player {
 }
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
+// Place all enemy objects in an array called allEnemies
+const allEnemies = [];
+// Place the player object in a variable called player
+let player = new Player(100,100);
 
 
 // This listens for key presses and sends the keys to your
