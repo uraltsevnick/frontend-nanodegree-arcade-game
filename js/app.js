@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(x, y, speed){
+    constructor(x, y, speed) {
         this.x = x;
         this.y = y;
         this.sprite = 'images/enemy-bug.png';
@@ -39,11 +39,22 @@ class Player {
 
     }
     render() {
-        //Draw the player on the canvas.
+        //Draw the player object on the canvas.
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    handleInput() {
-
+    handleInput(keyCode) {
+        if(keyCode == 'left' && (this.x > 0)) {
+            this.x -= 100;
+        }
+        if (keyCode == 'right' && (this.x < 310)) {
+            this.x += 100;
+        }
+        if (keyCode == 'up' && (this.y > 20)) {
+            this.y -= 82.2;
+        }
+        if (keyCode == 'down' && (this.y < 400)) {
+            this.y += 82.2;
+        }
     }
 }
 
@@ -59,7 +70,6 @@ let Enemy3 = new Enemy(-1,230,20);
 allEnemies.push(Enemy3);
 // Place the player object in a variable called player
 let player = new Player(200,405);
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
