@@ -1,8 +1,10 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(x, y, speed) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.height = 20;
+        this.width = 70;
         this.sprite = 'images/enemy-bug.png';
         this.speed = Math.floor((Math.random() * 200) + 100);
     }
@@ -19,6 +21,21 @@ update (dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed * dt;
+    //Making enemy repeats it's movement.
+
+    if(this.x >= 420) {this.x = -100;};
+    //i got collision detection equation from this site:- 
+    //https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    //making the collision detection with player and all enemies
+    for(let i=0; i< allEnemies.length; i++){
+        if((player.x <allEnemies[i].x + allEnemies[i].width) && 
+            (player.x + player.width > allEnemies[i].x) &&
+            (player.y < allEnemies[i].y + allEnemies[i].height) &&
+            (player.height + player.y >allEnemies[i].y)){
+                player.x = 200;
+                player.y = 405;
+            }
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -34,11 +51,12 @@ class Player {
     constructor (x, y) {
         this.x = x;
         this.y = y;
+        this.height = 50;
+        this.width = 50;
         this.sprite = "images/char-boy.png"
     }
 
-    update() {
-
+    update(x, y) {
     }
     render() {
         //Draw the player object on the canvas.
@@ -63,7 +81,7 @@ class Player {
 // Now instantiate your objects.
 
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [new Enemy(-1,65,20), new Enemy(-1,150,20), new Enemy(-1,230,20)];
+const allEnemies = [new Enemy(-1, 65), new Enemy(-1, 150), new Enemy(-1, 230)];
 
 // Place the player object in a variable called player
 let player = new Player(200,405);
