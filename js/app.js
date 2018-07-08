@@ -57,10 +57,7 @@ class Player {
     }
 
     update() {
-        if(this.y <= 50) {
-            this.x = 200;
-            this.y = 405;
-        }
+        
     }
     render() {
         //Draw the player object on the canvas.
@@ -78,6 +75,11 @@ class Player {
         }
         if (keyCode == 'down' && (this.y < 400)) {
             this.y += 82.2;
+        }
+        //when the player reaches the water it resets to its position.
+        if(this.y <= 50) {
+            this.x = 200;
+            this.y = 405;
         }
     }
 }
