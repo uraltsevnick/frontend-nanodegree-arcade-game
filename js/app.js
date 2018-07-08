@@ -27,15 +27,15 @@ update (dt) {
     //i got collision detection equation from this site:- 
     //https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
     //making the collision detection with player and all enemies
-    for(let i=0; i< allEnemies.length; i++){
-        if((player.x < allEnemies[i].x + allEnemies[i].width) && 
-            (player.x + player.width > allEnemies[i].x) &&
-            (player.y < allEnemies[i].y + allEnemies[i].height) &&
-            (player.height + player.y > allEnemies[i].y)){
+    
+        if((player.x < this.x + this.width) && 
+            (player.x + player.width > this.x) &&
+            (player.y < this.y + this.height) &&
+            (player.height + player.y > this.y)){
                 player.x = 200;
                 player.y = 405;
             }
-    }
+   
 };
 
 // Draw the enemy on the screen, required method for game
