@@ -28,10 +28,10 @@ update (dt) {
     //https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
     //making the collision detection with player and all enemies
     for(let i=0; i< allEnemies.length; i++){
-        if((player.x <allEnemies[i].x + allEnemies[i].width) && 
+        if((player.x < allEnemies[i].x + allEnemies[i].width) && 
             (player.x + player.width > allEnemies[i].x) &&
             (player.y < allEnemies[i].y + allEnemies[i].height) &&
-            (player.height + player.y >allEnemies[i].y)){
+            (player.height + player.y > allEnemies[i].y)){
                 player.x = 200;
                 player.y = 405;
             }
@@ -56,8 +56,8 @@ class Player {
         this.sprite = "images/char-boy.png"
     }
 
-    update(x, y) {
-        if(this.y <= 5) {
+    update() {
+        if(this.y <= 50) {
             this.x = 200;
             this.y = 405;
         }
