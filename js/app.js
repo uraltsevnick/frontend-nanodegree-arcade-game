@@ -57,6 +57,10 @@ class Player {
     }
 
     update(x, y) {
+        if(this.y <= 5) {
+            this.x = 200;
+            this.y = 405;
+        }
     }
     render() {
         //Draw the player object on the canvas.
